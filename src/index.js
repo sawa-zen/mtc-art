@@ -1,15 +1,12 @@
-// import {
-//   WebGLRenderer,
-//   PerspectiveCamera,
-//   Scene,
-// } from 'three';
-import { WebGLRenderer } from 'three/src/renderers/WebGLRenderer.js';
-import { Scene } from 'three/src/scenes/Scene.js';
-import { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera.js';
-import EventEmitter from 'eventemitter2';
+import { WebGLRenderer } from 'three/src/renderers/WebGLRenderer';
+import { Scene } from 'three/src/scenes/Scene';
+import { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera';
+import { ConeGeometry } from 'three/src/geometries/ConeGeometry';
+import { MeshBasicMaterial } from 'three/src/materials/MeshBasicMaterial';
+import { Mesh } from 'three/src/objects/Mesh';
 import "@babel/polyfill";
 
-class MtcArt extends EventEmitter {
+class MtcArt {
   _count = 0;
 
   get domElement() {
@@ -17,40 +14,38 @@ class MtcArt extends EventEmitter {
   }
 
   constructor() {
-    super();
-
     if (MtcArt.instance) {
       return MtcArt.instance;
     }
 
     // レンダラー
-    this._renderer = new THREE.WebGLRenderer();
+    this._renderer = new WebGLRenderer();
     this._renderer.setPixelRatio(2);
 
     // カメラ
-    this._camera = new THREE.PerspectiveCamera();
+    this._camera = new PerspectiveCamera();
     this._camera.position.z = 50;
     this._camera.lookAt(0, 0, 0);
 
     // シーン
-    this._scene = new THREE.Scene();
+    this._scene = new Scene();
 
-    // // Geometry
-    // this._geometry = new THREE.ConeGeometry(1, 2, 3);
-    //
-    // // Material
-    // this._material = new THREE.MeshBasicMaterial({
-    //   color: 0xffffff,
-    //   wireframe: true,
-    //   transparent: true,
-    // });
-    //
-    // // Mesh
-    // this._mesh = new THREE.Mesh(
-    //   this._geometry,
-    //   this._material,
-    // );
-    // this._scene.add(this._mesh);
+    // Geometry
+    this._geometry = new ConeGeometry(1, 2, 3);
+
+    // Material
+    this._material = new MeshBasicMaterial({
+      color: 0xffffff,
+      wireframe: true,
+      transparent: true,
+    });
+
+    // Mesh
+    this._mesh = new Mesh(
+      this._geometry,
+      this._material,
+    );
+    this._scene.add(this._mesh);
 
     // 描画開始
     this._render();
