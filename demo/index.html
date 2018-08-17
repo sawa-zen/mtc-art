@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>EscapeGame</title>
+  <script src="../dist/mtc-art.js"></script>
+</head>
+<style>
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+}
+</style>
+<body>
+  <div id="wrapper"></div>
+  <script>
+    var mtcArt = new MtcArt();
+    var wrapper = document.getElementById('wrapper');
+    wrapper.appendChild(mtcArt.domElement);
+    mtcArt.resize(wrapper.clientWidth, wrapper.clientHeight);
+
+    window.onresize = function() {
+      mtcArt.resize(wrapper.clientWidth, wrapper.clientHeight);
+    };
+  </script>
+</body>
+</html>
