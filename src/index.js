@@ -21,7 +21,7 @@ class MtcArt {
 
     // レンダラー
     this._renderer = new THREE.WebGLRenderer();
-    this._renderer.setPixelRatio(2);
+    this._renderer.setPixelRatio(1);
 
     // カメラ
     this._camera = new THREE.PerspectiveCamera();

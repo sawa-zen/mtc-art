@@ -8,8 +8,15 @@ export { Scene } from 'three/src/scenes/Scene';
 // cameras
 export { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera';
 // materials
-export { PointsMaterial } from 'three/src/materials/PointsMaterial';
+export { ShaderMaterial } from 'three/src/materials/ShaderMaterial';
 // objects
 // export { Mesh } from 'three/src/objects/Mesh';
 export { Points } from 'three/src/objects/Points';
 export { Group } from 'three/src/objects/Group';
+// textures
+export { Texture } from 'three/src/textures/Texture';
+// constants
+export {
+  NearestFilter,
+  AdditiveBlending
+} from 'three/src/constants'
