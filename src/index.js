@@ -21,7 +21,8 @@ class MtcArt {
 
     // レンダラー
     this._renderer = new THREE.WebGLRenderer();
-    this._renderer.setPixelRatio(1);
+    this._renderer.setClearColor(0x0F1528, 1);
+    this._renderer.setPixelRatio(2);
 
     // カメラ
     this._camera = new THREE.PerspectiveCamera();
@@ -54,16 +55,12 @@ class MtcArt {
   }
 
   _render = () => {
-    this._count++;
-    this._animationFrameId = requestAnimationFrame(this._render);
-
-    if (this._count % 2) {
-      return;
-    }
-
     this._stats.begin();
+    this._particles.update();
     this._renderer.render(this._scene, this._camera);
     this._stats.end();
+
+    this._animationFrameId = requestAnimationFrame(this._render);
   };
 }
 

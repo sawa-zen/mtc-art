@@ -1,3 +1,9 @@
+uniform sampler2D texture;
+
+varying vec4 vMvPosition;
+varying vec3 vColor;
+
 void main() {
-  gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);
+  float opacity = 0.3;
+  gl_FragColor = vec4(vColor, opacity);
 }

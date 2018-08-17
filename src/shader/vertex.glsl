@@ -1,10 +1,15 @@
 attribute vec3 color;
 
 uniform float time;
-uniform float size;
+
+varying vec4 vMvPosition;
+varying vec3 vColor;
 
 void main() {
   vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-  gl_PointSize = size * 100.0 / length(mvPosition.xyz);
+  vMvPosition = mvPosition;
+  vColor = vec3(1.0, 1.0, 1.0);
+
+  gl_PointSize = 1024.0 / length(mvPosition.xyz);
   gl_Position = projectionMatrix * mvPosition;
 }
