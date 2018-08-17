@@ -55,9 +55,13 @@ class MtcArt {
 
   _render = () => {
     this._count++;
+    this._animationFrameId = requestAnimationFrame(this._render);
+
+    if (this._count % 2) {
+      return;
+    }
 
     this._stats.begin();
-    this._animationFrameId = requestAnimationFrame(this._render);
     this._renderer.render(this._scene, this._camera);
     this._stats.end();
   };

@@ -2,7 +2,7 @@ import * as THREE from '../three';
 import { random } from '../shared/utils';
 
 class Particles extends THREE.Group {
-  _particleNum = 2000;
+  _particleNum = 1000;
 
   constructor() {
     super();
