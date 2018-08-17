@@ -1,9 +1,6 @@
-import { WebGLRenderer } from 'three/src/renderers/WebGLRenderer';
-import { Scene } from 'three/src/scenes/Scene';
-import { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera';
-import { ConeGeometry } from 'three/src/geometries/ConeGeometry';
-import { MeshBasicMaterial } from 'three/src/materials/MeshBasicMaterial';
-import { Mesh } from 'three/src/objects/Mesh';
+import * as THREE from './three';
+import Particles from './Particles';
+import Stats from 'stats.js';
 import "@babel/polyfill";
 
 class MtcArt {
@@ -18,34 +15,25 @@ class MtcArt {
       return MtcArt.instance;
     }
 
+    // stats
+    this._stats = new Stats();
+    document.body.appendChild(this._stats.dom);
+
     // レンダラー
-    this._renderer = new WebGLRenderer();
+    this._renderer = new THREE.WebGLRenderer();
     this._renderer.setPixelRatio(2);
 
     // カメラ
-    this._camera = new PerspectiveCamera();
-    this._camera.position.z = 50;
+    this._camera = new THREE.PerspectiveCamera();
+    this._camera.position.z = 300;
     this._camera.lookAt(0, 0, 0);
 
     // シーン
-    this._scene = new Scene();
+    this._scene = new THREE.Scene();
 
-    // Geometry
-    this._geometry = new ConeGeometry(1, 2, 3);
-
-    // Material
-    this._material = new MeshBasicMaterial({
-      color: 0xffffff,
-      wireframe: true,
-      transparent: true,
-    });
-
-    // Mesh
-    this._mesh = new Mesh(
-      this._geometry,
-      this._material,
-    );
-    this._scene.add(this._mesh);
+    // パーティクル群
+    this._particles = new Particles();
+    this._scene.add(this._particles);
 
     // 描画開始
     this._render();
@@ -67,8 +55,11 @@ class MtcArt {
 
   _render = () => {
     this._count++;
+
+    this._stats.begin();
     this._animationFrameId = requestAnimationFrame(this._render);
     this._renderer.render(this._scene, this._camera);
+    this._stats.end();
   };
 }
 
