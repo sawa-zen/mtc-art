@@ -23,6 +23,9 @@ module.exports = {
         },
         exclude: /node_modules/,
       },
+      {
+        test: /\.glsl$/, use: 'text-loader'
+      }
     ],
   },
 };

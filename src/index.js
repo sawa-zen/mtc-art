@@ -1,4 +1,11 @@
-import * as THREE from 'three';
+// import {
+//   WebGLRenderer,
+//   PerspectiveCamera,
+//   Scene,
+// } from 'three';
+import { WebGLRenderer } from 'three/src/renderers/WebGLRenderer.js';
+import { Scene } from 'three/src/scenes/Scene.js';
+import { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera.js';
 import EventEmitter from 'eventemitter2';
 import "@babel/polyfill";
 
@@ -28,22 +35,22 @@ class MtcArt extends EventEmitter {
     // シーン
     this._scene = new THREE.Scene();
 
-    // Geometry
-    this._geometry = new THREE.ConeGeometry(1, 2, 3);
-
-    // Material
-    this._material = new THREE.MeshBasicMaterial({
-      color: 0xffffff,
-      wireframe: true,
-      transparent: true,
-    });
-
-    // Mesh
-    this._mesh = new THREE.Mesh(
-      this._geometry,
-      this._material,
-    );
-    this._scene.add(this._mesh);
+    // // Geometry
+    // this._geometry = new THREE.ConeGeometry(1, 2, 3);
+    //
+    // // Material
+    // this._material = new THREE.MeshBasicMaterial({
+    //   color: 0xffffff,
+    //   wireframe: true,
+    //   transparent: true,
+    // });
+    //
+    // // Mesh
+    // this._mesh = new THREE.Mesh(
+    //   this._geometry,
+    //   this._material,
+    // );
+    // this._scene.add(this._mesh);
 
     // 描画開始
     this._render();
