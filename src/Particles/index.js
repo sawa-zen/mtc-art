@@ -45,8 +45,8 @@ class Particles extends THREE.Group {
 
   update() {
     this._material.uniforms.time.value += 1;
-    this.rotation.x += 0.001;
-    this.rotation.z += 0.001;
+    this.rotation.x += 0.0005;
+    this.rotation.z += 0.0005;
   }
 }
 

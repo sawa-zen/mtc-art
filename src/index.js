@@ -1,6 +1,6 @@
 import * as THREE from './three';
 import Particles from './Particles';
-import Stats from 'stats.js';
+import Stats from './Stats';
 import "@babel/polyfill";
 
 class MtcArt {
@@ -17,7 +17,6 @@ class MtcArt {
 
     // stats
     this._stats = new Stats();
-    document.body.appendChild(this._stats.dom);
 
     // レンダラー
     this._renderer = new THREE.WebGLRenderer();
@@ -26,6 +25,8 @@ class MtcArt {
 
     // カメラ
     this._camera = new THREE.PerspectiveCamera();
+    this._camera.near = 10;
+    this._camera.far = 600;
     this._camera.position.z = 300;
     this._camera.lookAt(0, 0, 0);
 
