@@ -9,8 +9,9 @@ export { Scene } from 'three/src/scenes/Scene';
 export { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera';
 // materials
 export { ShaderMaterial } from 'three/src/materials/ShaderMaterial';
+export { RawShaderMaterial } from 'three/src/materials/RawShaderMaterial';
 // objects
-// export { Mesh } from 'three/src/objects/Mesh';
+export { Mesh } from 'three/src/objects/Mesh';
 export { Points } from 'three/src/objects/Points';
 export { Group } from 'three/src/objects/Group';
 // textures

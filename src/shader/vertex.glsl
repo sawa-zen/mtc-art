@@ -1,6 +1,9 @@
+attribute vec3 position;
 attribute vec3 color;
 attribute float seed;
 
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
 uniform float time;
 
 varying vec4 vMvPosition;

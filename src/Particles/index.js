@@ -27,7 +27,7 @@ class Particles extends THREE.Group {
     this._geometry.addAttribute('seed', new THREE.BufferAttribute(seeds, 1));
 
     // material
-    this._material = new THREE.ShaderMaterial({
+    this._material = new THREE.RawShaderMaterial({
       uniforms: {
         time: {
           type: 'f',

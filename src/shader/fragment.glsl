@@ -1,3 +1,5 @@
+precision mediump float;
+
 uniform sampler2D texture;
 
 varying vec4 vMvPosition;
