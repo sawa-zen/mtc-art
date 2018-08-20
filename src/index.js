@@ -53,6 +53,10 @@ class MtcArt {
     this._renderer.setSize(w, h);
   }
 
+  explosion(explosionNum) {
+    this._particles.explosion(explosionNum);
+  }
+
   dispose() {
     cancelAnimationFrame(this._animationFrameId);
     MtcArt.instance = null;

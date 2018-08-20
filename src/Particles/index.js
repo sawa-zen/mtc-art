@@ -21,8 +21,8 @@ class Particles extends THREE.Group {
     // 280 × 134
     const width = 280;
     const height = 134;
-    const halfWidth = 280 / 2;
-    const halfHeight = 134 / 2;
+    const halfWidth = width / 2;
+    const halfHeight = height / 2;
     for (let index = 0; index < length; index++) {
       vertexPositions.push(dotData[index][0] - halfWidth); // x
       vertexPositions.push(-dotData[index][1] + halfHeight); // y
@@ -48,6 +48,10 @@ class Particles extends THREE.Group {
           type: 'f',
           value: 0.0
         },
+        explosionNum: {
+          type: 'f',
+          value: 0.0
+        }
       },
       vertexShader,
       fragmentShader,
@@ -63,11 +67,15 @@ class Particles extends THREE.Group {
     this.add(this._points);
   }
 
+  explosion(explosionNum = 0) {
+    if (explosionNum > 486) {
+      explosionNum = 486;
+    }
+    this._material.uniforms.explosionNum.value = explosionNum;
+  }
+
   update() {
     this._material.uniforms.time.value += 1;
-    // this.rotation.x -= 0.0005;
-    // this.rotation.y -= 0.0005;
-    // this.rotation.z -= 0.0005;
   }
 }
 
