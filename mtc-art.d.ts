@@ -3,6 +3,7 @@ declare module 'mtc-art' {
     constructor();
     domElement: HTMLCanvasElement;
     resize(width: number, height: number): void;
+    explosion(explosionNum: number): void;
     dispose(): void;
   }
   export default MtcArt;
