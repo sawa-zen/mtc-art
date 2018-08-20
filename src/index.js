@@ -26,12 +26,15 @@ class MtcArt {
     // カメラ
     this._camera = new THREE.PerspectiveCamera();
     this._camera.near = 10;
-    this._camera.far = 600;
-    this._camera.position.z = 300;
+    this._camera.far = 2400;
+    this._camera.position.z = 1200;
     this._camera.lookAt(0, 0, 0);
 
     // シーン
     this._scene = new THREE.Scene();
+
+    // var axesHelper = new THREE.AxesHelper(20);
+    // this._scene.add(axesHelper);
 
     // パーティクル群
     this._particles = new Particles();

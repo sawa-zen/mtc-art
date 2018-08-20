@@ -6,6 +6,6 @@ varying vec4 vMvPosition;
 varying vec3 vColor;
 
 void main() {
-  float opacity = 600.0 / length(vMvPosition.xyz) / 2.0;
+  float opacity = 1.0; //600.0 / length(vMvPosition.xyz) / 2.0;
   gl_FragColor = vec4(vColor, opacity);
 }
