@@ -30,6 +30,7 @@ class Particles extends THREE.Group {
       vertexColors.push(dotData[index][2] / 255); // r
       vertexColors.push(dotData[index][3] / 255); // g
       vertexColors.push(dotData[index][4] / 255); // b
+      vertexColors.push(dotData[index][5] / 255); // a
       seedValues.push(random(-100, 100));
     }
 
@@ -38,7 +39,7 @@ class Particles extends THREE.Group {
     const seeds = new Float32Array(seedValues);
 
     this._geometry.addAttribute('position', new THREE.BufferAttribute(positions, 3));
-    this._geometry.addAttribute('color', new THREE.BufferAttribute(colors, 3));
+    this._geometry.addAttribute('color', new THREE.BufferAttribute(colors, 4));
     this._geometry.addAttribute('seed', new THREE.BufferAttribute(seeds, 1));
 
     // material
