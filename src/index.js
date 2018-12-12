@@ -1,7 +1,6 @@
 import * as THREE from './three';
 import Particles from './Particles';
 import Stats from './Stats';
-import "@babel/polyfill";
 
 class MtcArt {
   _count = 0;
@@ -32,9 +31,6 @@ class MtcArt {
 
     // シーン
     this._scene = new THREE.Scene();
-
-    // var axesHelper = new THREE.AxesHelper(20);
-    // this._scene.add(axesHelper);
 
     // パーティクル群
     this._particles = new Particles();

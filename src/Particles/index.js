@@ -6,6 +6,7 @@ const dotData = require('../dot.json');
 
 class Particles extends THREE.Group {
   _particleNum = 10000;
+  _maxExplosionNum = 486;
 
   constructor() {
     super();
@@ -18,7 +19,7 @@ class Particles extends THREE.Group {
 
     const length = dotData.length;
 
-    // 280 × 134
+    // 280 x 134
     const width = 280;
     const height = 134;
     const halfWidth = width / 2;
@@ -69,8 +70,8 @@ class Particles extends THREE.Group {
   }
 
   explosion(explosionNum = 0) {
-    if (explosionNum > 486) {
-      explosionNum = 486;
+    if (explosionNum > this._maxExplosionNum) {
+      explosionNum = this._maxExplosionNum;
     }
     this._material.uniforms.explosionNum.value = explosionNum;
   }

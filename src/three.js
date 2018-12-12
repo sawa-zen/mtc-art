@@ -21,5 +21,3 @@ export {
   NearestFilter,
   AdditiveBlending
 } from 'three/src/constants'
-// helpers
-export { AxesHelper } from 'three/src/helpers/AxesHelper';
