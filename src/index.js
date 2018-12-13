@@ -18,9 +18,9 @@ class MtcArt {
     this._stats = new Stats();
 
     // レンダラー
-    this._renderer = new THREE.WebGLRenderer({ antialias: true });
+    this._renderer = new THREE.WebGLRenderer({ antialias: false });
     this._renderer.setClearColor(0x0F1528, 1);
-    this._renderer.setPixelRatio(1);
+    this._renderer.setPixelRatio(2);
 
     // カメラ
     this._camera = new THREE.PerspectiveCamera();
