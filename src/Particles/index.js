@@ -48,7 +48,7 @@ class Particles extends THREE.Group {
       uniforms: {
         time: {
           type: 'f',
-          value: 0.0
+          value: 3000.0
         },
         explosionNum: {
           type: 'f',
